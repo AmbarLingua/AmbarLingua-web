@@ -1,17 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+  --crema:      #F5EFE0;
+  --crema-dk:   #E8DEC8;
+  --crema-warm: #EDE3CC;
+  --terra:      #C4622D;
+  --terra-lt:   #E07848;
+  --terra-dk:   #8B3E1E;
+  --fucsia:     #D4006A;
+  --fucsia-lt:  #FF2D87;
+  --carbon:     #1C1410;
+  --carbon-soft:#2E1F16;
+  --white:      #FDFAF4;
 
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
 body {
-  background-color: #F5EFE0;
-  color: #1C1410;
-  font-family: sans-serif;
+  background-color: var(--crema);
+  color: var(--carbon);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
 }
 
 h1 {
-  color: #C4622D;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--carbon);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--carbon);
 }
 
 em {
-  color: #D4006A;
+  color: var(--fucsia);
   font-style: italic;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: var(--terra);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--terra);
+}
+
+a:hover {
+  color: var(--fucsia);
+  border-bottom-color: var(--fucsia);
 }
 
 img {
