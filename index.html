@@ -1,67 +1,496 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AmbarLingua — Clases de inglés</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AmbarLingua — Inglés sin vergüenza. Con método.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
-<nav class="nav">
-    <a href="#" class="nav-logo">AmbarLingua</a>
-    <div class="nav-links">
-      <a href="#sobre">Sobre mí</a>
-      <a href="#ofrezco">Clases</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-  </nav>
-
-  <div class="sorbito">
-      <p>Nadie aprende un idioma memorizando listas. Se aprende <em>usándolo</em>, con errores y todo.</p>
-    </div>
-
 <body>
 
-  <section class="hero">
-    <h1>AmbarLingua</h1>
-    <img src="images/ambar.jpeg" alt="Ambar Navarro, profesora de inglés en Toronto">
-    <p>Clases de inglés con Ambar Navarro.</p>
-  </section>
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">Ambar<em>Lingua</em></a>
+  <ul class="nav-links">
+    <li><a href="#sobre-mi">Soy Ambar</a></li>
+    <li><a href="#clases">Clases</a></li>
+    <li><a href="#sorbito">El Sorbito</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Quiero una clase gratis</a>
+</nav>
 
-  <a href="#contacto" class="btn btn-primary">Reservar una clase</a>
-  <a href="#" class="btn btn-fucsia">Ver precios</a>
-
-  <section id="sobre">
-    <p class="eyebrow">Sobre mí</p>
-    <h2>Profesora <em>certificada</em> en Toronto</h2>
-    <p>Soy profesora certificada <strong>TEFL</strong> en Toronto.
-       Enseño inglés a la comunidad hispanohablante, <em>presencial y online</em>.</p>
-  </section>
-
-<section id="ofrezco">
-    <h2>Qué <em>ofrezco</em></h2>
-    <div class="card-row">
-      <div class="card">
-        <h3>Clases individuales</h3>
-        <p>Uno a uno, adaptadas a tu nivel y a tu objetivo.</p>
-      </div>
-      <div class="card">
-        <h3>Clases grupales</h3>
-        <p>Grupos pequeños, precio accesible, práctica constante.</p>
-      </div>
-      <div class="card">
-        <h3>Inglés para el trabajo</h3>
-        <p>Vocabulario real del oficio, entrevistas y comunicación.</p>
+<!-- ── HERO ── -->
+<section style="background:var(--crema);padding-top:64px;">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Profesora certificada TEFL · Toronto, Canadá</div>
+      <h1 class="hero-title">
+        Inglés sin
+        <em>vergüenza.</em>
+        <span class="t">Con método.</span>
+      </h1>
+      <p class="hero-sub">
+        Si llevas meses — o años — intentando aprender inglés y sientes que no avanzas, el problema no eres tú. Es cómo te lo enseñaron. Yo lo cambio.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary">Quiero mi clase gratis</a>
+        <a href="#clases" class="btn-ghost">Ver clases</a>
       </div>
     </div>
-  </section>
+    <div class="hero-right">
+      <div class="hero-card-badge">
+        <div class="hcb-num">3+</div>
+        <div class="hcb-label">Años en Toronto</div>
+      </div>
+      <div class="hero-card-main">
+        <div class="hc-title">Aprende inglés sin <em>vergüenza.</em></div>
+        <div class="hc-divider"></div>
+        <div class="hc-features">
+          <div class="hc-feat">
+            <div class="hc-feat-dot"></div>
+            <span><strong>Máximo 4 personas</strong> por grupo — atención real</span>
+          </div>
+          <div class="hc-feat">
+            <div class="hc-feat-dot"></div>
+            <span><strong>Material propio</strong> diseñado para hispanohablantes</span>
+          </div>
+          <div class="hc-feat">
+            <div class="hc-feat-dot"></div>
+            <span><strong>Inglés real</strong> — trabajo, vida, exámenes en Canadá</span>
+          </div>
+          <div class="hc-feat">
+            <div class="hc-feat-dot"></div>
+            <span><strong>Sin fórmulas mágicas</strong> — solo método verificado</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card-sorbito">
+        <div class="hcs-label">Momento de marca</div>
+        <div class="hcs-text">🥤 #SorbitoDeLaVerdad</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <a href="https://tinyurl.com/AmbarInfo" target="_blank" rel="noopener">WhatsApp</a>
-       o encuéntrame en
-       <a href="https://instagram.com/ambarlingua" target="_blank" rel="noopener">Instagram</a>.</p>
-  </section>
+<!-- ── STATS BAR ── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">4 <em>max</em></div>
+      <div class="stat-label">Personas por grupo</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">3 <em>hrs</em></div>
+      <div class="stat-label">Por semana</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">20<em>%</em></div>
+      <div class="stat-label">Off · Agosto 2026</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">100<em>%</em></div>
+      <div class="stat-label">Online · Worldwide</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">TEFL</div>
+      <div class="stat-label">Certificación oficial</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SOY AMBAR ── -->
+<section class="section about-section" id="sobre-mi">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-photo r">
+        <div class="about-photo-placeholder">A</div>
+        <div class="about-photo-badge">
+          <div class="apb-text">Soy Ambar</div>
+          <div class="apb-sub">Mexicana · Toronto</div>
+        </div>
+        <div class="about-photo-sorbito">
+          <div class="aps-text">🥤 #SorbitoDeLaVerdad</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="eyebrow r">Soy Ambar</div>
+        <h2 class="section-title r">
+          Viví en 4 países<br>antes de <em>enseñarte.</em>
+        </h2>
+        <div class="tefl-badge r">
+          <span class="tb-icon">📜</span>
+          <div class="tb-text">
+            <div class="tb-label">Certificación</div>
+            <div class="tb-value">TEFL Certified Teacher</div>
+          </div>
+        </div>
+        <p class="about-story r">
+          Aprendí inglés de niña en <strong>Estados Unidos.</strong> Después viví en <em>España y Francia</em>, donde entendí que hablar un idioma y saber enseñarlo son dos cosas completamente distintas.
+        </p>
+        <p class="about-story r">
+          En 2024 llegué sola a <strong>Toronto</strong> y empecé a dar clases a latinos que llegaron aquí con todo el valor del mundo, pero sintiéndose invisibles por el idioma. Hoy, junto a mi esposo brasileño y nuestra perrita Blanquita, sigo haciendo exactamente eso.
+        </p>
+        <div class="timeline r">
+          <div class="tl-item">
+            <span class="tl-year">9 años</span>
+            <span class="tl-text">Primera vez en <strong>EE.UU.</strong> — mi primer idioma nuevo</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2014</span>
+            <span class="tl-text">Viaje sola a <strong>España</strong> — después <strong>Francia</strong></span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2020</span>
+            <span class="tl-text">Regreso a <strong>México</strong> — 3 años construyendo</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2024</span>
+            <span class="tl-text">Llego sola a <strong>Toronto</strong> — empiezo AmbarLingua</span>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2025</span>
+            <span class="tl-text">Me caso en <strong>Brasil</strong> — adoptamos a Blanquita 🐾</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLASES ── -->
+<section class="section clases-section" id="clases">
+  <div class="section-inner">
+    <div class="eyebrow r">Clases</div>
+    <h2 class="section-title r">
+      Elige cómo quieres<br><em>aprender.</em>
+    </h2>
+
+    <div class="discount-bar r">
+      <div class="db-left">
+        <div class="db-label">🔥 Oferta de lanzamiento</div>
+        <div class="db-text">Los primeros <em>20 inscritos</em> en grupos de agosto reciben 20% de descuento. Precio normal desde septiembre.</div>
+      </div>
+      <div class="db-pill">20% OFF · AGOSTO</div>
+    </div>
+
+    <div class="clases-grid">
+      <div class="clase-card r">
+        <div class="cc-icon">👤</div>
+        <div class="cc-title">Clase Individual</div>
+        <div class="cc-subtitle">1 persona · 1.5 horas</div>
+        <div class="cc-desc">Atención 100% personalizada. El ritmo, los temas y el material se adaptan exactamente a lo que necesitas.</div>
+        <div class="cc-features">
+          <div class="cc-feat">Horario completamente flexible</div>
+          <div class="cc-feat">Material adaptado a tu nivel</div>
+          <div class="cc-feat">Progreso acelerado garantizado</div>
+          <div class="cc-feat">Sesión de diagnóstico gratis</div>
+        </div>
+        <div class="cc-price">
+          <span class="cc-price-sym">$</span>
+          <span class="cc-price-num">105</span>
+          <span class="cc-price-period">CAD / mes</span>
+        </div>
+        <button class="cc-cta cc-cta-outline">Me interesa →</button>
+      </div>
+
+      <div class="clase-card highlight r">
+        <div class="cc-icon">👥</div>
+        <div class="cc-title">Grupo Pequeño</div>
+        <div class="cc-subtitle">Máx. 4 personas · 1.5 horas</div>
+        <div class="cc-desc">La opción más completa. Practicas con otros latinos, aprendes de sus errores y progresas junto a una comunidad.</div>
+        <div class="cc-features">
+          <div class="cc-feat">Máximo 4 personas — nunca más</div>
+          <div class="cc-feat">3 horas semanales de clase</div>
+          <div class="cc-feat">Material propio de AmbarLingua</div>
+          <div class="cc-feat">Acceso a grupo de WhatsApp</div>
+        </div>
+        <div class="cc-price">
+          <span class="cc-price-sym">$</span>
+          <span class="cc-price-num">315</span>
+          <span class="cc-price-period">CAD / mes</span>
+        </div>
+        <button class="cc-cta cc-cta-fucsia">Quiero inscribirme →</button>
+      </div>
+
+      <div class="clase-card r">
+        <div class="cc-icon">🌐</div>
+        <div class="cc-title">Clase de Prueba</div>
+        <div class="cc-subtitle">1 sesión · 45 minutos</div>
+        <div class="cc-desc">Conoce el método antes de comprometerte. Sin presión, sin compromiso. Solo tú y Ambar por 45 minutos.</div>
+        <div class="cc-features">
+          <div class="cc-feat">Diagnóstico de tu nivel real</div>
+          <div class="cc-feat">Sin costo — completamente gratis</div>
+          <div class="cc-feat">Online desde cualquier lugar</div>
+          <div class="cc-feat">Blanquita incluida 🐾</div>
+        </div>
+        <div class="cc-price">
+          <span class="cc-price-sym" style="color:var(--fucsia)"></span>
+          <span class="cc-price-num" style="color:var(--fucsia);font-size:28px;">GRATIS</span>
+        </div>
+        <button class="cc-cta cc-cta-terra">Reservar mi clase →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SORBITO ── -->
+<section class="section sorbito-section" id="sorbito">
+  <div class="section-inner">
+    <div class="sorbito-grid">
+      <div class="sorbito-left">
+        <div class="eyebrow r">El Sorbito de la Verdad</div>
+        <h2 class="section-title r">
+          Las verdades que<br>nadie <em>te dice.</em>
+        </h2>
+        <div class="sorbito-verdad r">
+          <span class="sv-emoji">🥤</span>
+          <div class="sv-label">Sorbito de la Verdad</div>
+          <div class="sv-text">
+            El inglés no es <em>difícil.</em> Te fallaron quienes te lo enseñaron.
+          </div>
+          <div class="sv-subtext">
+            Para enseñar un idioma necesitas dos cosas: dominarlo y saber transmitirlo. Sin las dos, por más buena onda que sea, no puede darte lo que no tiene.
+          </div>
+        </div>
+      </div>
+      <div class="sorbito-right">
+        <div class="sorbito-verdades">
+          <div class="sv-item r">
+            <span class="sv-item-emoji">🥤</span>
+            <div class="sv-item-text">
+              <div class="sv-item-title">El inglés tiene <em>menos</em> conjugaciones que el español</div>
+              <div class="sv-item-desc">Estructuralmente es más simple. Si sientes que no avanzas, el problema no es el idioma.</div>
+            </div>
+          </div>
+          <div class="sv-item r">
+            <span class="sv-item-emoji">🥤</span>
+            <div class="sv-item-text">
+              <div class="sv-item-title">Hablar inglés y <em>enseñarlo</em> son dos cosas distintas</div>
+              <div class="sv-item-desc">Tu primo que vivió en EE.UU. te habla en inglés. Pero eso no lo convierte en tu mejor profesor.</div>
+            </div>
+          </div>
+          <div class="sv-item r">
+            <span class="sv-item-emoji">🥤</span>
+            <div class="sv-item-title">No existe el inglés en <em>3 meses</em></div>
+            <div class="sv-item-desc">Nadie que te prometa eso está siendo honesto contigo. El aprendizaje real toma tiempo — y un método.</div>
+          </div>
+          <div class="sv-item r">
+            <span class="sv-item-emoji">🥤</span>
+            <div class="sv-item-text">
+              <div class="sv-item-title">El <em>silencio</em> tiene un costo real</div>
+              <div class="sv-item-desc">En el trabajo, con el casero, en el doctor. Cada vez que te quedas callado, algo se pierde.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIOS ── -->
+<section class="section testimonios-section" id="testimonios">
+  <div class="section-inner">
+    <div class="eyebrow r">Testimonios</div>
+    <h2 class="section-title r">
+      Lo que dicen quienes<br>ya <em>empezaron.</em>
+    </h2>
+    <div class="testimonios-grid">
+      <div class="testimonio-card r">
+        <div class="tc-stars">★★★★★</div>
+        <div class="tc-text">"Llevaba 2 años en Toronto y seguía sin poder hablar con mis compañeros de trabajo. Con Ambar en 3 meses <em>cambió todo.</em>"</div>
+        <div class="tc-author">
+          <div class="tc-name">María G.</div>
+          <div class="tc-detail">Venezuela · Toronto · Grupo pequeño</div>
+        </div>
+      </div>
+      <div class="testimonio-card r">
+        <div class="tc-stars">★★★★★</div>
+        <div class="tc-text">"Lo que me gustó es que Ambar no te promete milagros. Te dice la verdad y te enseña con <em>método real.</em> Eso vale más."</div>
+        <div class="tc-author">
+          <div class="tc-name">Carlos M.</div>
+          <div class="tc-detail">Colombia · Online · Clase individual</div>
+        </div>
+      </div>
+      <div class="testimonio-card r">
+        <div class="tc-stars">★★★★★</div>
+        <div class="tc-text">"Blanquita es lo mejor de las clases 🐾 Pero en serio — el ambiente es tan <em>cómodo</em> que el miedo a equivocarse desaparece."</div>
+        <div class="tc-author">
+          <div class="tc-name">Laura P.</div>
+          <div class="tc-detail">México · Toronto · Grupo pequeño</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PICNIC CTA ── -->
+<section class="picnic-section">
+  <div class="picnic-inner">
+    <div>
+      <div class="picnic-eyebrow">Evento gratuito · Toronto</div>
+      <h2 class="picnic-title">
+        Picnic de inglés<br><em>sin vergüenza.</em>
+      </h2>
+      <p class="picnic-desc">
+        Practica conversación en inglés en Dufferin Grove Park con latinos como tú. Gratis, sin compromiso, con una profesora TEFL presente. Y viene Blanquita 🐾
+      </p>
+    </div>
+    <div class="picnic-details">
+      <div class="pd-item">
+        <span class="pd-icon">📅</span>
+        <div class="pd-text">
+          <div class="pd-label">Fecha</div>
+          <div class="pd-value">Sábado 12 de julio · 11:00 AM</div>
+        </div>
+      </div>
+      <div class="pd-item">
+        <span class="pd-icon">📍</span>
+        <div class="pd-text">
+          <div class="pd-label">Lugar</div>
+          <div class="pd-value">Dufferin Grove Park · Toronto</div>
+        </div>
+      </div>
+      <div class="pd-item">
+        <span class="pd-icon">🎟️</span>
+        <div class="pd-text">
+          <div class="pd-label">Costo</div>
+          <div class="pd-value">100% Gratuito · Solo 20 lugares</div>
+        </div>
+      </div>
+      <a href="#contacto" class="picnic-cta">Reservar mi lugar gratis →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACTO ── -->
+<section class="section contacto-section" id="contacto">
+  <div class="section-inner">
+    <div class="eyebrow r">Contacto</div>
+    <h2 class="section-title r">
+      Tu primer paso<br>empieza <em>aquí.</em>
+    </h2>
+    <div class="contacto-grid">
+      <div class="contacto-right r">
+        <div class="contacto-info">
+          <div class="ci-item">
+            <div class="ci-icon">📱</div>
+            <div class="ci-text">
+              <div class="ci-label">WhatsApp Business</div>
+              <div class="ci-value">+1 (647) XXX-XXXX</div>
+              <div class="ci-sub">Respondo en menos de 24 horas</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">📸</div>
+            <div class="ci-text">
+              <div class="ci-label">Instagram</div>
+              <div class="ci-value">@ambarlingua</div>
+              <div class="ci-sub">TikTok · Facebook · YouTube Shorts</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">📍</div>
+            <div class="ci-text">
+              <div class="ci-label">Ubicación</div>
+              <div class="ci-value">Toronto, Ontario · Canadá</div>
+              <div class="ci-sub">Clases 100% online · Disponible worldwide</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">🐾</div>
+            <div class="ci-text">
+              <div class="ci-label">Asistente oficial</div>
+              <div class="ci-value">Blanquita</div>
+              <div class="ci-sub">Presente en todas las clases desde el día 1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contacto-left r">
+        <form class="contacto-form">
+          <div class="form-group">
+            <label class="form-label">Tu nombre</label>
+            <input class="form-input" type="text" placeholder="¿Cómo te llamas?">
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp o email</label>
+            <input class="form-input" type="text" placeholder="+1 (647) o tu correo">
+          </div>
+          <div class="form-group">
+            <label class="form-label">¿Qué te interesa?</label>
+            <select class="form-select">
+              <option value="">Elige una opción</option>
+              <option>Clase de prueba gratis</option>
+              <option>Grupo pequeño — agosto</option>
+              <option>Clase individual</option>
+              <option>Picnic 12 de julio</option>
+              <option>Solo quiero información</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">¿Cuál es tu nivel de inglés?</label>
+            <select class="form-select">
+              <option value="">Elige tu nivel</option>
+              <option>Principiante — casi nada</option>
+              <option>Básico — entiendo poco</option>
+              <option>Intermedio — me defiendo</option>
+              <option>Avanzado — quiero perfeccionar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">¿Algo más que quieras decirme?</label>
+            <textarea class="form-textarea" placeholder="Cuéntame tu historia con el inglés..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar y empezar →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">Ambar<em>Lingua</em></span>
+      <p class="footer-desc">Canal personal de Ambar — profesora certificada TEFL enseñando inglés a latinos en Toronto y el mundo. Sin vergüenza. Con método.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navegación</div>
+      <div class="footer-links">
+        <a href="#sobre-mi">Soy Ambar</a>
+        <a href="#clases">Clases y precios</a>
+        <a href="#sorbito">El Sorbito de la Verdad</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Sígueme</div>
+      <div class="footer-links">
+        <a href="#">TikTok @ambarlingua</a>
+        <a href="#">Instagram @ambarlingua</a>
+        <a href="#">Facebook AmbarLingua</a>
+        <a href="#">YouTube Shorts</a>
+        <a href="#">WhatsApp Business</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 AmbarLingua · Toronto, Canadá · TEFL Certified</span>
+    <span class="footer-sorbito">🥤 #SorbitoDeLaVerdad</span>
+  </div>
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
