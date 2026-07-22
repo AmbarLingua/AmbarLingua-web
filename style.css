@@ -75,12 +75,12 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   background: var(--crema);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 100px 60px 60px;
+  padding: 40px 60px 60px;
   max-width: var(--max-w);
   margin: 0 auto;
   gap: 60px;
@@ -146,6 +146,7 @@ nav {
   padding: 32px 28px;
   border-top: 4px solid var(--terra);
   box-shadow: 0 20px 60px rgba(28,20,16,0.1), 0 0 0 1px rgba(28,20,16,0.04);
+  z-index: 1;
 }
 .hc-title {
   font-family: var(--font-display);
@@ -171,6 +172,7 @@ nav {
   border-radius: var(--radius-md);
   padding: 16px 20px;
   box-shadow: 0 12px 32px rgba(212,0,106,0.35);
+  z-index: 2;
 }
 .hcs-label {
   font-family: var(--font-mono);
@@ -190,6 +192,7 @@ nav {
   border-radius: var(--radius-md);
   padding: 14px 18px;
   box-shadow: 0 4px 16px rgba(28,20,16,0.08);
+  z-index: 3;
 }
 .hcb-num {
   font-family: var(--font-display);
