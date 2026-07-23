@@ -757,3 +757,155 @@ footer {
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
+/* ═══════════════════════════════════════════════════════════
+   CAJA — INGLÉS DE SUPERVIVENCIA Y TRABAJO
+   Bloque nuevo. No modifica ninguna regla existente.
+   ═══════════════════════════════════════════════════════════ */
+.survival-box {
+  margin-top: 28px;
+  background: var(--white);
+  border: 1.5px solid var(--crema-dk);
+  border-left: 5px solid var(--fucsia);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(28,20,16,0.06);
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 40px;
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.25s;
+}
+.survival-box:hover { box-shadow: 0 14px 36px rgba(212,0,106,0.10); }
+
+.sb-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 8.5px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: white; background: var(--fucsia);
+  padding: 4px 12px; border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+  box-shadow: 0 3px 10px rgba(212,0,106,0.28);
+}
+.sb-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700; line-height: 1.05;
+  color: var(--carbon);
+  margin-bottom: 14px;
+}
+.sb-title em { color: var(--fucsia); font-style: italic; }
+.sb-sub {
+  font-size: 14.5px; font-weight: 600; line-height: 1.6;
+  color: var(--carbon);
+  margin-bottom: 12px;
+}
+.sb-sub em { color: var(--terra); font-style: normal; }
+.sb-body {
+  font-size: 13px; line-height: 1.7;
+  color: rgba(28,20,16,0.58);
+  margin-bottom: 20px;
+}
+.sb-sectors {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 22px;
+}
+.sb-sector {
+  font-family: var(--font-mono);
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--terra);
+  background: rgba(196,98,45,0.08);
+  border: 1px solid rgba(196,98,45,0.18);
+  padding: 5px 11px; border-radius: var(--radius-pill);
+}
+.sb-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.sb-cta {
+  display: inline-block;
+  background: var(--fucsia); color: white;
+  font-family: var(--font-body); font-size: 13.5px; font-weight: 700;
+  padding: 13px 28px; border-radius: var(--radius-pill);
+  border: none; cursor: pointer; text-decoration: none;
+  box-shadow: 0 4px 16px rgba(212,0,106,0.32);
+  transition: background 0.2s, transform 0.2s;
+}
+.sb-cta:hover { background: var(--fucsia-lt); transform: translateY(-2px); }
+.sb-note {
+  font-family: var(--font-mono);
+  font-size: 9.5px; letter-spacing: 0.08em;
+  color: rgba(28,20,16,0.4);
+}
+
+.sb-right {
+  background: var(--crema);
+  border: 1px solid rgba(196,98,45,0.16);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+}
+.sb-right-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sb-right-label::before {
+  content: ''; width: 14px; height: 1.5px; background: var(--terra);
+}
+.sb-list { display: flex; flex-direction: column; gap: 11px; }
+.sb-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 12.5px; line-height: 1.5;
+  color: rgba(28,20,16,0.72);
+}
+.sb-item strong { color: var(--carbon); font-weight: 700; }
+.sb-item::before {
+  content: '✓';
+  flex-shrink: 0;
+  width: 16px; height: 16px; margin-top: 1px;
+  border-radius: 50%;
+  background: var(--fucsia); color: white;
+  font-size: 9px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .survival-box {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 26px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .survival-box, .sb-cta { transition: none; }
+  .sb-cta:hover { transform: none; }
+}
+
+/* ── CLASES MODALITY LINE ── */
+.clases-modality {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(28, 20, 16, 0.48);
+  margin-top: -32px;
+  margin-bottom: 32px;
+}
+.cm-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--fucsia);
+  flex-shrink: 0;
+}
+.cm-sep {
+  color: rgba(28, 20, 16, 0.25);
+}
