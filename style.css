@@ -628,6 +628,12 @@ nav {
 .contacto-form {
   display: flex; flex-direction: column; gap: 16px;
 }
+.ci-icon--fb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-label {
   font-family: var(--font-mono);
