@@ -623,17 +623,23 @@ nav {
 .contacto-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
 }
+
 .contacto-left {}
 .contacto-right {}
 .contacto-form {
   display: flex; flex-direction: column; gap: 16px;
 }
-.ci-icon--fb {
+
+.ci-icon--fb,
+.ci-icon--wa,
+.ci-icon--ig {
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
+  text-decoration: none; /* removes underline since they're now <a> tags */
 }
+
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-label {
   font-family: var(--font-mono);
