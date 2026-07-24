@@ -11,7 +11,7 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-logo"><img src="images/ambar_mini.jpg" alt="Ambar" class="nav-logo-img"><span>Ambar<em>Lingua</em></span></a>
+  <a href="#" class="nav-logo"><img src="images/ambar_mini.jpg" alt="Ambar" class="nav-logo-img" id="navAvatarTrigger"><span>Ambar<em>Lingua</em></span></a>
   <ul class="nav-links">
     <li><a href="#sobre-mi">Soy Ambar</a></li>
     <li><a href="#clases">Clases</a></li>
@@ -24,15 +24,23 @@
   <span></span><span></span><span></span>
 </button>
 </nav>
+<!-- Lightbox -->
+<div class="lightbox" id="avatarLightbox">
+  <div class="lightbox-backdrop"></div>
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+    <img src="images/ambar_mini.jpg" alt="Ambar" class="lightbox-img">
+  </div>
+</div>
 
 <!-- ── HERO ── -->
 <section style="background:var(--crema);padding-top:64px;">
   <div class="hero">
     <div class="hero-left">
+      <div class="hero-eyebrow">Profesora certificada TEFL · Toronto, Canadá</div>
       <div class="hero-mobile-avatar">
         <img src="images/ambar_mini.jpg" alt="Ambar y Blanquita">
       </div>
-    <div class="hero-eyebrow">Profesora certificada TEFL · Toronto, Canadá</div>
       <h1 class="hero-title">
         Inglés sin
         <em>vergüenza.</em>
@@ -110,34 +118,37 @@
 <section class="section about-section" id="sobre-mi">
   <div class="section-inner">
     <div class="about-grid">
-      <div class="about-photo r">
-        <div class="about-photo-ring">
-          <img src="images/soy_ambar.jpg" alt="Ambar — English teacher in Toronto" class="about-photo-img">
-          <div class="about-photo-dot"></div>
-        </div>
-        <div class="about-photo-badge">
-          <div class="apb-text">Soy Ambar</div>
-          <div class="apb-sub">Mexicana · Toronto</div>
-        </div>
+        <div class="about-left">
+    <div class="eyebrow r">Soy Ambar</div>
+    <h2 class="section-title r">
+      Viví en 4 países<br>antes de <em>enseñarte.</em>
+    </h2>
+    <div class="about-photo r">
+      <div class="about-photo-ring">
+        <img src="images/soy_ambar.jpg" alt="Ambar — English teacher in Toronto" class="about-photo-img">
+        <div class="about-photo-dot"></div>
       </div>
-      <div class="about-content">
-        <div class="eyebrow r">Soy Ambar</div>
-        <h2 class="section-title r">
-          Viví en 4 países<br>antes de <em>enseñarte.</em>
-        </h2>
-        <div class="tefl-badge r">
-          <span class="tb-icon">📜</span>
-          <div class="tb-text">
-            <div class="tb-label">Certificación</div>
-            <div class="tb-value">TEFL Certified Teacher</div>
-          </div>
-        </div>
-        <p class="about-story r">
-          Aprendí inglés de niña en <strong>Estados Unidos.</strong> Después viví en <em>España y Francia</em>, donde entendí que hablar un idioma y saber enseñarlo son dos cosas completamente distintas.
-        </p>
-        <p class="about-story r">
-          En 2023 llegué sola a <strong>Toronto</strong> y empecé a dar clases a latinos que llegaron aquí con todo el valor del mundo, pero sintiéndose invisibles por el idioma. Hoy, junto a mi esposo brasileño y nuestra perrita Blanquita, sigo haciendo exactamente eso.
-        </p>
+      <div class="about-photo-badge">
+        <div class="apb-text">Soy Ambar</div>
+        <div class="apb-sub">Mexicana · Toronto</div>
+      </div>
+    </div>
+  </div>
+  <!-- COLUMNA DERECHA: resto del contenido -->
+  <div class="about-content">
+    <div class="tefl-badge r">
+      <span class="tb-icon">📜</span>
+      <div class="tb-text">
+        <div class="tb-label">Certificación</div>
+        <div class="tb-value">TEFL Certified Teacher</div>
+      </div>
+    </div>
+    <p class="about-story r">
+      Aprendí inglés de niña en <strong>Estados Unidos.</strong> Después viví en <em>España y Francia</em>, donde entendí que hablar un idioma y saber enseñarlo son dos cosas completamente distintas.
+    </p>
+    <p class="about-story r">
+      En 2023 llegué sola a <strong>Toronto</strong> y empecé a dar clases a latinos que llegaron aquí con todo el valor del mundo, pero sintiéndose invisibles por el idioma. Hoy, junto a mi esposo brasileño y nuestra perrita Blanquita, sigo haciendo exactamente eso.
+    </p>
         <div class="timeline r">
           <div class="tl-item">
             <span class="tl-year">9 años</span>

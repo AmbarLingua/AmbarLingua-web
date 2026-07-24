@@ -35,3 +35,34 @@ if (burger) {
     });
   });
 }
+
+// Lightbox — avatar nav
+const avatarTrigger = document.getElementById('navAvatarTrigger');
+const avatarLightbox = document.getElementById('avatarLightbox');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxBackdrop = document.querySelector('.lightbox-backdrop');
+
+if (avatarTrigger && avatarLightbox) {
+  avatarTrigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    avatarLightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  lightboxClose.addEventListener('click', () => {
+    avatarLightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  lightboxBackdrop.addEventListener('click', () => {
+    avatarLightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      avatarLightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+}

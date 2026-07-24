@@ -80,6 +80,15 @@ nav {
   object-position: center top;
   border: 2px solid rgba(196,98,45,0.25);
   flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-logo:hover .nav-logo-img {
+  transform: scale(2.8);
+  box-shadow: 0 8px 24px rgba(196,98,45,0.35);
+  border-color: var(--terra);
+  z-index: 200;
+  position: relative;
 }
 .nav-logo {
   display: flex;
@@ -96,7 +105,7 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 40px 60px 60px;
+  padding: 44px 60px 60px;
   max-width: var(--max-w);
   margin: 0 auto;
   gap: 60px;
@@ -276,6 +285,15 @@ nav {
 .about-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 60px; align-items: center;
+}
+
+/* Columna izquierda de Soy Ambar */
+.about-left {
+  display: flex;
+  flex-direction: column;
+}
+.about-left .section-title {
+  margin-bottom: 16px;
 }
 
 .about-photo {
@@ -803,11 +821,11 @@ footer {
     z-index: 99;
   }
 
-  .hero-mobile-avatar {
-    display: flex;
-    justify-content: center;
-    margin: 0;       
-  }
+.hero-mobile-avatar {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 28px;
+}
   .hero-mobile-avatar img {
     width: 160px; height: 160px;  /* antes: 80px — doble tamaño */
     border-radius: 50%;
@@ -847,11 +865,12 @@ footer {
   .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .hero {
     grid-template-columns: 1fr;
-    padding: 70px 24px 40px;
+    padding: 44px 24px 40px;
   }
   .hero-right { display: none; }
   .section-inner { padding: 0 24px; }
   .about-grid { grid-template-columns: 1fr; }
+  .about-left { width: 100%; }
   .about-photo { aspect-ratio: unset; width: 100%; justify-content: center; padding: 20px 0; }
   .about-photo-ring { width: 260px; height: 260px; }
   .about-photo-img  { width: 234px; height: 234px; }
@@ -1016,4 +1035,84 @@ footer {
 }
 .cm-sep {
   color: rgba(28, 20, 16, 0.25);
+}
+/* ── LIGHTBOX ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 20, 16, 0.75);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+.lightbox-content {
+  position: relative;
+  z-index: 1000;
+  animation: lbIn 0.25s ease;
+}
+.lightbox-img {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 4px solid var(--terra);
+  box-shadow: 0 24px 64px rgba(28,20,16,0.4);
+  display: block;
+}
+.lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--terra);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(196,98,45,0.4);
+  transition: background 0.2s, transform 0.2s;
+  z-index: 1001;
+}
+.lightbox-close:hover {
+  background: var(--terra-lt);
+  transform: scale(1.1);
+}
+@keyframes lbIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Solo desktop — hover en el avatar del nav */
+@media (min-width: 769px) {
+  .nav-logo-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .nav-logo:hover .nav-logo-img {
+    transform: scale(2.8);
+    box-shadow: 0 8px 24px rgba(196,98,45,0.35);
+    border-color: var(--terra);
+    z-index: 200;
+    position: relative;
+  }
 }
