@@ -780,9 +780,10 @@ footer {
   }
   .hero-right { display: none; }
   .section-inner { padding: 0 24px; }
-  .about-grid,
-  .about-photo-ring { width: 280px; height: 280px; }
-  .about-photo-img  { width: 252px; height: 252px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo { aspect-ratio: unset; width: 100%; justify-content: center; padding: 20px 0; }
+  .about-photo-ring { width: 260px; height: 260px; }
+  .about-photo-img  { width: 234px; height: 234px; }
   .sorbito-grid,
   .contacto-grid,
   .picnic-inner { grid-template-columns: 1fr; }
