@@ -19,3 +19,19 @@ window.addEventListener('scroll', () => {
       ? 'var(--terra)' : '';
   });
 });
+
+// Mobile nav toggle
+const burger = document.getElementById('navBurger');
+const navMenu = document.querySelector('.nav-links');
+if (burger) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  });
+  navMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      navMenu.classList.remove('open');
+    });
+  });
+}
