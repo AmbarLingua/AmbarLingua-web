@@ -789,6 +789,7 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
+  .nav-logo-img { display: none; }
   .nav-links {
     display: none;
     flex-direction: column;
@@ -801,13 +802,14 @@ footer {
     border-bottom: 1px solid rgba(196,98,45,0.12);
     z-index: 99;
   }
+
   .hero-mobile-avatar {
     display: flex;
     justify-content: center;
-    margin: 20px 0 0;
+    margin: 8px 0 0;        /* antes: 20px — reducido para acercar al header */
   }
   .hero-mobile-avatar img {
-    width: 80px; height: 80px;
+    width: 160px; height: 160px;  /* antes: 80px — doble tamaño */
     border-radius: 50%;
     object-fit: cover;
     object-position: center top;
