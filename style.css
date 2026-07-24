@@ -248,7 +248,7 @@ nav {
 
 /* ── SECTION BASE ── */
 .section {
-  padding: 88px 0;
+  padding: 44px 0;
   position: relative;
 }
 .section-inner {
@@ -341,7 +341,7 @@ nav {
   font-size: 9px; color: white; letter-spacing: 0.08em;
 }
 
-.about-content {}
+.about-content { text-align: left; }
 .about-story {
   font-size: 15px; line-height: 1.8;
   color: rgba(28,20,16,0.62); margin-bottom: 28px;
@@ -806,7 +806,7 @@ footer {
   .hero-mobile-avatar {
     display: flex;
     justify-content: center;
-    margin: 8px 0 0;        /* antes: 20px — reducido para acercar al header */
+    margin: 0;       
   }
   .hero-mobile-avatar img {
     width: 160px; height: 160px;  /* antes: 80px — doble tamaño */
@@ -847,7 +847,7 @@ footer {
   .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .hero {
     grid-template-columns: 1fr;
-    padding: 100px 24px 60px;
+    padding: 70px 24px 40px;
   }
   .hero-right { display: none; }
   .section-inner { padding: 0 24px; }
