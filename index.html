@@ -214,7 +214,7 @@
           <span class="cc-price-num">280</span>
           <span class="cc-price-period">CAD / mes</span>
         </div>
-        <button class="cc-cta cc-cta-fucsia">Quiero inscribirme →</button>
+        <a href="#contacto" class="cc-cta cc-cta-fucsia">Quiero inscribirme →</a>
       </div>
 
       <div class="clase-card r">
@@ -233,7 +233,7 @@
           <span class="cc-price-num">400</span>
           <span class="cc-price-period">CAD / mes</span>
         </div>
-        <button class="cc-cta cc-cta-outline">Me interesa →</button>
+        <a href="#contacto" class="cc-cta cc-cta-outline">Me interesa →</a>
       </div>
 
       <div class="clase-card r">
@@ -251,7 +251,7 @@
           <span class="cc-price-sym" style="color:var(--fucsia)"></span>
           <span class="cc-price-num" style="color:var(--fucsia);font-size:28px;">GRATIS</span>
         </div>
-        <button class="cc-cta cc-cta-terra">Reservar mi clase →</button>
+        <a href="#contacto" class="cc-cta cc-cta-terra">Reservar mi clase →</a>
       </div>
     </div>
     <div class="survival-box r">
@@ -517,29 +517,58 @@
         </div>
       </div>
       <div class="contacto-left r">
-        <form class="contacto-form">
+        <form class="contacto-form" id="contactoForm" novalidate>
+
+          <!-- Nombre (obligatorio) -->
           <div class="form-group">
-            <label class="form-label">Tu nombre</label>
-            <input class="form-input" type="text" placeholder="¿Cómo te llamas?">
+            <label class="form-label" for="contactNombre">Tu nombre <span class="form-required">*</span></label>
+            <input class="form-input" id="contactNombre" type="text" placeholder="¿Cómo te llamas?" autocomplete="given-name">
+            <span class="form-error" id="errorNombre">Por favor escribe tu nombre.</span>
           </div>
+
+          <!-- Toggle WhatsApp / Email -->
           <div class="form-group">
-            <label class="form-label">WhatsApp o email</label>
-            <input class="form-input" type="text" placeholder="+1 (647) o tu correo">
+            <label class="form-label">WhatsApp o email <span class="form-required">*</span></label>
+            <div class="contact-toggle">
+              <button type="button" class="toggle-btn active" id="btnWhatsapp" aria-pressed="true">📱 WhatsApp</button>
+              <button type="button" class="toggle-btn" id="btnEmail" aria-pressed="false">✉️ Email</button>
+            </div>
+
+            <!-- Campo WhatsApp: selector de código + número -->
+            <div class="contact-field" id="fieldWhatsapp">
+              <div class="phone-row">
+                <select class="form-select phone-code" id="phoneCode" aria-label="Código de país"></select>
+                <input class="form-input phone-number" id="phoneNumber" type="tel" placeholder="Número de teléfono" autocomplete="tel-national">
+              </div>
+              <span class="form-error" id="errorWhatsapp">Por favor ingresa un número válido.</span>
+            </div>
+
+            <!-- Campo Email -->
+            <div class="contact-field hidden" id="fieldEmail">
+              <input class="form-input" id="emailInput" type="email" placeholder="tucorreo@ejemplo.com" autocomplete="email">
+              <span class="form-error" id="errorEmail">Por favor ingresa un email válido.</span>
+            </div>
           </div>
+
+          <!-- ¿Qué te interesa? (obligatorio) -->
           <div class="form-group">
-            <label class="form-label">¿Qué te interesa?</label>
-            <select class="form-select">
+            <label class="form-label" for="contactInteres">¿Qué te interesa? <span class="form-required">*</span></label>
+            <select class="form-select" id="contactInteres">
               <option value="">Elige una opción</option>
-              <option>Evaluación gratis</option>
-              <option>Grupo pequeño — agosto</option>
-              <option>Clase individual</option>
-              <option>Picnic - proximamente</option>
-              <option>Solo quiero información</option>
+              <option value="evaluacion">Evaluación gratis</option>
+              <option value="grupo">Grupo pequeño — agosto</option>
+              <option value="individual">Clase individual</option>
+              <option value="supervivencia">Inglés de supervivencia y trabajo</option>
+              <option value="picnic">Picnic - próximamente</option>
+              <option value="info">Solo quiero información</option>
             </select>
+            <span class="form-error" id="errorInteres">Por favor elige una opción.</span>
           </div>
+
+          <!-- Nivel de inglés -->
           <div class="form-group">
-            <label class="form-label">¿Cuál es tu nivel de inglés?</label>
-            <select class="form-select">
+            <label class="form-label" for="contactNivel">¿Cuál es tu nivel de inglés?</label>
+            <select class="form-select" id="contactNivel">
               <option value="">Elige tu nivel</option>
               <option>Principiante — casi nada</option>
               <option>Básico — entiendo poco</option>
@@ -547,10 +576,13 @@
               <option>Avanzado — quiero perfeccionar</option>
             </select>
           </div>
+
+          <!-- Mensaje libre -->
           <div class="form-group">
-            <label class="form-label">¿Algo más que quieras decirme?</label>
-            <textarea class="form-textarea" placeholder="Cuéntame tu historia con el inglés..."></textarea>
+            <label class="form-label" for="contactMensaje">¿Algo más que quieras decirme?</label>
+            <textarea class="form-textarea" id="contactMensaje" placeholder="Cuéntame tu historia con el inglés..."></textarea>
           </div>
+
           <button type="submit" class="form-submit">Enviar y empezar →</button>
         </form>
       </div>

@@ -788,6 +788,97 @@ nav {
 .ci-value { font-size: 14px; font-weight: 600; color: var(--carbon); }
 .ci-sub { font-size: 11px; color: rgba(28,20,16,0.4); margin-top: 2px; }
 
+/* ── PHONE ROW ── */
+.phone-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.phone-code {
+  width: 168px;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  background: var(--crema);
+  color: var(--carbon);
+  border: 1.5px solid var(--crema-dk);
+  border-radius: var(--radius-md);
+  padding: 14px 10px;
+  outline: none;
+  cursor: pointer;
+  appearance: auto;
+  transition: border-color 0.2s;
+}
+.phone-code:focus { border-color: var(--terra); }
+.phone-number { flex: 1; min-width: 0; }
+
+/* ── FORM ENHANCEMENTS ── */
+.form-required { color: var(--fucsia); font-style: normal; }
+
+.form-error {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 9px; letter-spacing: 0.1em;
+  color: var(--fucsia);
+  margin-top: 4px;
+}
+.form-group.has-error .form-input,
+.form-group.has-error .form-select,
+.form-group.has-error .phone-code,
+.form-group.has-error .phone-number {
+  border-color: var(--fucsia);
+}
+.form-group.has-error .form-error { display: block; }
+
+/* Toggle WhatsApp / Email */
+.contact-toggle {
+  display: flex; gap: 8px;
+  margin-bottom: 10px;
+}
+.toggle-btn {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--crema-dk);
+  background: var(--crema);
+  color: rgba(28,20,16,0.5);
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.toggle-btn.active {
+  background: var(--terra); color: white;
+  border-color: var(--terra);
+  box-shadow: 0 3px 12px rgba(196,98,45,0.28);
+}
+.toggle-btn:not(.active):hover {
+  border-color: var(--terra);
+  color: var(--terra);
+}
+
+/* Phone row */
+.contact-field { display: flex; flex-direction: column; gap: 0; }
+.contact-field.hidden { display: none; }
+.phone-row { display: flex; gap: 8px; align-items: stretch; }
+.phone-code {
+  font-family: var(--font-body); font-size: 13px;
+  background: var(--crema); color: var(--carbon);
+  border: 1.5px solid var(--crema-dk);
+  border-radius: var(--radius-md); padding: 14px 12px;
+  outline: none; transition: border-color 0.2s;
+  width: 160px; flex-shrink: 0;
+}
+.phone-code:focus { border-color: var(--terra); }
+.phone-number { flex: 1; min-width: 0; }
+
+/* cc-cta as anchor */
+a.cc-cta {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
 /* ── FOOTER ── */
 footer {
   background: var(--carbon);
