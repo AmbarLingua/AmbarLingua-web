@@ -359,14 +359,56 @@ function isValidPhone(val) {
   return /^\d{6,15}$/.test(val.replace(/[\s\-().]/g, ''));
 }
 
-// Real-time clear on input
+// ── Real-time clear on input ──
+function clearSubmitError() {
+  const submitErr = document.getElementById('submitError');
+  if (submitErr) submitErr.classList.remove('visible');
+}
+
 ['contactNombre', 'phoneNumber', 'emailInput', 'contactInteres'].forEach(id => {
   const el = document.getElementById(id);
-  if (el) el.addEventListener('input', () => clearError(el));
+  if (el) el.addEventListener('input', () => { clearError(el); clearSubmitError(); });
 });
 document.getElementById('contactInteres')?.addEventListener('change', () => {
   clearErrorById('errorInteres');
+  clearSubmitError();
 });
+
+// ── TOAST ──
+function showToast() {
+  const toast = document.getElementById('msgToast');
+  if (!toast) return;
+  toast.classList.add('show');
+
+  // Close on click anywhere
+  function dismissToast(e) {
+    toast.classList.remove('show');
+    document.removeEventListener('click', dismissToast);
+  }
+  // Delay adding listener so the submit click doesn't immediately dismiss it
+  setTimeout(() => document.addEventListener('click', dismissToast), 50);
+}
+
+// ── FORM RESET ──
+function resetContactForm() {
+  const f = document.getElementById('contactoForm');
+  if (!f) return;
+
+  // Text / textarea / email / tel
+  f.querySelectorAll('input, textarea').forEach(el => { el.value = ''; });
+
+  // Selects back to first option (placeholder)
+  f.querySelectorAll('select').forEach(sel => { sel.selectedIndex = 0; });
+
+  // Clear all error states
+  f.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+  f.querySelectorAll('.form-error').forEach(e => { e.style.display = 'none'; });
+  const submitErr = document.getElementById('submitError');
+  if (submitErr) submitErr.classList.remove('visible');
+
+  // Reset toggle back to WhatsApp (the default)
+  activateWhatsapp();
+}
 
 // ── FORM SUBMIT ──
 const form = document.getElementById('contactoForm');
@@ -417,34 +459,49 @@ if (form) {
     }
 
     if (!valid) {
+      // Show summary error below the button
+      const submitErr = document.getElementById('submitError');
+      if (submitErr) {
+        submitErr.textContent = 'Por favor completa los campos obligatorios marcados en rojo.';
+        submitErr.classList.add('visible');
+      }
       const firstErr = form.querySelector('.form-group.has-error');
       if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
 
+    // Hide submit error if all good
+    const submitErr = document.getElementById('submitError');
+    if (submitErr) submitErr.classList.remove('visible');
+
     // ── Build WhatsApp message ──
-    // Get selected country code from Tom Select value (format: "+1||Canadá")
-    const phoneCodeRaw = document.getElementById('phoneCode')?.value || '';
-    const phoneCode    = phoneCodeRaw.split('||')[0];
-    const phoneNum     = document.getElementById('phoneNumber')?.value || '';
-    const emailVal     = document.getElementById('emailInput')?.value || '';
-    const nivel        = document.getElementById('contactNivel')?.value || '';
-    const mensaje      = document.getElementById('contactMensaje')?.value || '';
+    const phoneCodeRaw  = document.getElementById('phoneCode')?.value || '';
+    const phoneCode     = phoneCodeRaw.split('||')[0];
+    const phoneNum      = document.getElementById('phoneNumber')?.value || '';
+    const emailVal      = document.getElementById('emailInput')?.value || '';
+    const nivel         = document.getElementById('contactNivel')?.value || '';
+    const mensaje       = document.getElementById('contactMensaje')?.value || '';
+    const nombreVal     = nombre.value.trim();
+    const interesText   = interes.options[interes.selectedIndex].text;
 
-    const contacto = isWa
-      ? `WhatsApp: ${phoneCode} ${phoneNum}`
-      : `Email: ${emailVal}`;
+    if (isWa) {
+      // ── WhatsApp path ──
+      const waText = encodeURIComponent(
+        `Gracias por contactarnos, te contactaremos pronto - ` +
+        `AmbarLingua contacto: ${nombreVal}` +
+        ` | Interés: ${interesText}` +
+        (nivel ? ` | Nivel: ${nivel}` : '') +
+        (mensaje.trim() ? ` | Mensaje: ${mensaje.trim()}` : '')
+      );
 
-    const text = encodeURIComponent(
-      `Hola Ambar! Me contacto desde tu web.\n\n` +
-      `Nombre: ${nombre.value.trim()}\n` +
-      `Contacto: ${contacto}\n` +
-      `Interés: ${interes.options[interes.selectedIndex].text}\n` +
-      (nivel   ? `Nivel: ${nivel}\n`          : '') +
-      (mensaje.trim() ? `\nMensaje: ${mensaje.trim()}` : '')
-    );
-
-    window.open(`https://wa.me/14378919298?text=${text}`, '_blank');
+      window.open(`https://wa.me/14378919298?text=${waText}`, '_blank');
+      showToast();
+      resetContactForm();
+    } else {
+      // ── Email path — handled later ──
+      // Placeholder: do nothing for now
+      console.log('Email submission — to be implemented.');
+    }
   });
 }
 

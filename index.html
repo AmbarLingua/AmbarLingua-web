@@ -448,12 +448,12 @@
 <!-- ── CONTACTO ── -->
 <section class="section contacto-section" id="contacto">
   <div class="section-inner">
-    <div class="eyebrow r">Contacto</div>
-    <h2 class="section-title r">
-      Tu primer paso<br>empieza <em>aquí.</em>
-    </h2>
     <div class="contacto-grid">
       <div class="contacto-right r">
+        <div class="eyebrow r">Contacto</div>
+        <h2 class="section-title contacto-title r">
+          Tu primer paso<br>empieza <em>aquí.</em>
+        </h2>
         <div class="contacto-info">
           <div class="ci-item">
             <a href="https://wa.me/14378919298" target="_blank" rel="noopener noreferrer" class="ci-icon ci-icon--wa" aria-label="WhatsApp AmbarLingua">
@@ -583,7 +583,10 @@
             <textarea class="form-textarea" id="contactMensaje" placeholder="Cuéntame tu historia con el inglés..."></textarea>
           </div>
 
-          <button type="submit" class="form-submit">Enviar y empezar →</button>
+          <div class="form-submit-area">
+            <button type="submit" class="form-submit">Enviar y empezar →</button>
+            <span class="form-submit-error" id="submitError"></span>
+          </div>
         </form>
       </div>
     </div>
@@ -624,6 +627,12 @@
   </div>
 </footer>
 
+
+<!-- ── TOAST ── -->
+<div class="toast" id="msgToast" role="status" aria-live="polite">
+  <span class="toast-icon">✓</span>
+  <span class="toast-text">Mensaje enviado.</span>
+</div>
 
 <script src="script.js"></script>
 

@@ -717,10 +717,13 @@ nav {
 .picnic-cta:hover { background: var(--fucsia-lt); transform: translateY(-2px); }
 
 /* ── CONTACTO ── */
-.contacto-section { background: var(--white); }
+.contacto-section { background: var(--white); scroll-margin-top: 64px; }
 .contacto-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
 }
+
+/* Title lives inside the left column on desktop — tighten its bottom margin */
+.contacto-title { margin-bottom: 28px; }
 
 .contacto-left {}
 .contacto-right {}
@@ -765,6 +768,65 @@ nav {
   transition: background 0.2s, transform 0.2s; align-self: flex-start;
 }
 .form-submit:hover { background: var(--terra-lt); transform: translateY(-2px); }
+
+/* Small error summary below the submit button */
+.form-submit-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.form-submit-error {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--fucsia);
+  padding: 6px 12px;
+  background: rgba(212,0,106,0.06);
+  border-left: 2px solid var(--fucsia);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.form-submit-error.visible { display: block; }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.92);
+  background: var(--carbon);
+  color: var(--crema);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 18px 32px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 12px 40px rgba(28,20,16,0.28);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.toast-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: var(--terra);
+  border-radius: 50%;
+  font-size: 10px;
+  flex-shrink: 0;
+}
 
 .contacto-info { display: flex; flex-direction: column; gap: 20px; }
 .ci-item {
