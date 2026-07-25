@@ -487,9 +487,8 @@ if (form) {
     if (isWa) {
       // ── WhatsApp path ──
       const waText = encodeURIComponent(
-        `Gracias por contactarnos, te contactaremos pronto - ` +
-        `AmbarLingua contacto: ${nombreVal}` +
-        ` | Interés: ${interesText}` +
+        `Hola Ambar yo soy ${nombreVal}. Me gustaria informaciones por favor.\n` +
+        `Interés: ${interesText}` +
         (nivel ? ` | Nivel: ${nivel}` : '') +
         (mensaje.trim() ? ` | Mensaje: ${mensaje.trim()}` : '')
       );

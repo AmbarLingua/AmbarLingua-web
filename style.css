@@ -26,12 +26,17 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 body {
   font-family: var(--font-body);
   background: var(--crema);
   color: var(--carbon);
   overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1001,6 +1006,7 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+  section, footer, nav, .stats-bar { max-width: 100%; overflow-x: clip; }
   nav { padding: 0 20px; }
   .nav-logo-img { display: none; }
   .nav-links {
@@ -1075,7 +1081,8 @@ footer {
   .picnic-inner { grid-template-columns: 1fr; }
   .clases-grid,
   .testimonios-grid { grid-template-columns: 1fr; }
-  .stats-inner { justify-content: center; }
+  .stats-inner { justify-content: center; padding: 0 20px; }
+  .stats-bar { overflow: hidden; }
   .stat-divider { display: none; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
