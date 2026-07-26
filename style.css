@@ -497,14 +497,28 @@ nav {
 }
 .cc-cta-outline:hover { background: var(--terra); color: white; }
 
+/* Oferta strip — below the fixed nav, above the hero */
+.oferta-strip {
+  position: relative;
+  z-index: 90;
+  margin-top: 64px;
+  background: var(--crema-warm);
+  border-bottom: 1.5px solid rgba(196,98,45,0.15);
+}
+.oferta-strip-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
 /* Discount bar */
 .discount-bar {
-  background: var(--crema-warm);
-  border: 1.5px solid rgba(196,98,45,0.18);
-  border-radius: var(--radius-md);
-  padding: 16px 24px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 12px 0;
   display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 40px; flex-wrap: wrap; gap: 12px;
+  margin-bottom: 0; flex-wrap: wrap; gap: 12px;
 }
 .db-left {}
 .db-label {
@@ -736,6 +750,14 @@ nav {
   display: flex; flex-direction: column; gap: 16px;
 }
 
+.form-heading {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 700; font-style: italic;
+  color: var(--terra);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
 .ci-icon--fb,
 .ci-icon--wa,
 .ci-icon--ig {
@@ -940,10 +962,28 @@ nav {
 
 /* cc-cta as anchor */
 a.cc-cta {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   text-align: center;
   text-decoration: none;
   line-height: 1.2;
+}
+
+/* WhatsApp icon inside class buttons — never taller than the text */
+.cc-wa-icon,
+.sb-wa-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* Evaluación card scroll offset — lands at top of card, not mid-content */
+#evaluacion {
+  scroll-margin-top: 80px;
 }
 
 /* ── FOOTER ── */
@@ -1066,7 +1106,8 @@ footer {
   .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .hero {
     grid-template-columns: 1fr;
-    padding: 44px 24px 40px;
+    min-height: auto;
+    padding: 32px 24px 36px;
   }
   .hero-right { display: none; }
   .section-inner { padding: 0 24px; }
@@ -1086,6 +1127,9 @@ footer {
   .stat-divider { display: none; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
+  .oferta-strip-inner { padding: 0 24px; }
+  .oferta-strip { margin-top: 64px; }
+  .contacto-left { padding-top: 0; margin-top: -16px; }
 }
 /* ═══════════════════════════════════════════════════════════
    CAJA — INGLÉS DE SUPERVIVENCIA Y TRABAJO
@@ -1152,7 +1196,9 @@ footer {
 }
 .sb-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .sb-cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: var(--fucsia); color: white;
   font-family: var(--font-body); font-size: 13.5px; font-weight: 700;
   padding: 13px 28px; border-radius: var(--radius-pill);
