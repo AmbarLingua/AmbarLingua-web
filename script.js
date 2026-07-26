@@ -497,9 +497,36 @@ if (form) {
       showToast();
       resetContactForm();
     } else {
-      // ── Email path — handled later ──
-      // Placeholder: do nothing for now
-      console.log('Email submission — to be implemented.');
+      // ── Email path ──
+      const submitBtn = form.querySelector('.form-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+
+      emailjs.send('ambarlingua_gmail_js', 'template_bxrfnou', {
+        nombre:  nombreVal,
+        email:   emailVal,
+        interes: interesText,
+        nivel:   nivel || '—',
+        mensaje: mensaje.trim() || '—'
+      })
+      .then(() => {
+        showToast();
+        resetContactForm();
+      })
+      .catch((err) => {
+        console.error('EmailJS error status:', err?.status);
+        console.error('EmailJS error text:', err?.text);
+        console.error('EmailJS full error:', JSON.stringify(err));
+        const submitErr = document.getElementById('submitError');
+        if (submitErr) {
+          submitErr.textContent = `Error: ${err?.text || err?.status || 'desconocido'}. Intenta de nuevo.`;
+          submitErr.classList.add('visible');
+        }
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar y empezar →';
+      });
     }
   });
 }
