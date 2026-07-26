@@ -674,6 +674,34 @@ nav {
   background: var(--terra);
   position: relative; overflow: hidden;
 }
+/* Diagonal "Gratis" ribbon — top-left corner of picnic section */
+.picnic-section--ribbon::after {
+  /* override the decorative circle so we can repurpose ::after */
+  display: none;
+}
+.picnic-section--ribbon .picnic-ribbon {
+  position: absolute;
+  top: 22px;
+  left: -32px;
+  width: 130px;
+  padding: 7px 0;
+  background: var(--fucsia);
+  color: #FDFAF4;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(-45deg);
+  box-shadow: 0 3px 12px rgba(212,0,106,0.45);
+  z-index: 10;
+  pointer-events: none;
+  /* crisp edges on the fold */
+  border-top: 1px solid rgba(255,255,255,0.18);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
 .picnic-section::before {
   content: '';
   position: absolute; top: -100px; right: -100px;
