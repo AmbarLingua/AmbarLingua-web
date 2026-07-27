@@ -537,3 +537,106 @@ if (document.readyState === 'loading') {
 } else {
   buildPhoneSelect();
 }
+// ── TESTIMONIOS CAROUSEL ──
+(function () {
+  const track    = document.getElementById('tcTrack');
+  const dotsWrap = document.getElementById('tcDots');
+  const btnPrev  = document.getElementById('tcPrev');
+  const btnNext  = document.getElementById('tcNext');
+  if (!track || !dotsWrap || !btnPrev || !btnNext) return;
+
+  const slides = Array.from(track.querySelectorAll('.tc-slide'));
+  const total  = slides.length;
+
+  function visibleCount() {
+    return window.innerWidth <= 768 ? 1 : 3;
+  }
+
+  // Max index before empty slots appear (circular wraps around this)
+  function maxIndex() {
+    return total - visibleCount();
+  }
+
+  let current = 0;
+
+  // ── Build dots (one per "page", i.e. per starting position) ──
+  // For simplicity keep one dot per card — active dot = current card
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'tc-dot';
+    dot.setAttribute('aria-label', 'Testimonio ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.querySelectorAll('.tc-dot'));
+
+  // ── Render ──
+  function render(animated) {
+    const cardW  = slides[0].offsetWidth;
+    const gap    = 16;
+    const offset = current * (cardW + gap);
+
+    track.style.transition = animated === false
+      ? 'none'
+      : 'transform 0.42s cubic-bezier(0.4, 0, 0.2, 1)';
+    track.style.transform = 'translateX(-' + offset + 'px)';
+
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  // ── Navigate — wraps at maxIndex so no empty slots ever show ──
+  function step(dir) {
+    const max = maxIndex();
+    if (dir > 0) {
+      // Going right: if we're at the last full group, wrap to 0
+      current = current >= max ? 0 : current + 1;
+    } else {
+      // Going left: if we're at 0, wrap to max
+      current = current <= 0 ? max : current - 1;
+    }
+    render(true);
+  }
+
+  function goTo(idx) {
+    const max = maxIndex();
+    current = Math.min(Math.max(0, idx), max);
+    render(true);
+  }
+
+  btnPrev.addEventListener('click', () => step(-1));
+  btnNext.addEventListener('click', () => step(+1));
+
+  // ── Touch/swipe ──
+  let touchStartX = null;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    if (touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+    touchStartX = null;
+  }, { passive: true });
+
+  // ── Keyboard ──
+  document.addEventListener('keydown', e => {
+    const section = document.getElementById('testimonios');
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    if (rect.top > window.innerHeight || rect.bottom < 0) return;
+    if (e.key === 'ArrowLeft')  step(-1);
+    if (e.key === 'ArrowRight') step(+1);
+  });
+
+  // ── Resize — recalculate without animation ──
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      // Clamp current to new maxIndex after resize
+      current = Math.min(current, maxIndex());
+      render(false);
+    }, 120);
+  });
+
+  // ── Init ──
+  render(false);
+})();

@@ -382,32 +382,100 @@
     <h2 class="section-title r">
       Lo que dicen quienes<br>ya <em>empezaron.</em>
     </h2>
-    <div class="testimonios-grid">
-      <div class="testimonio-card r">
-        <div class="tc-stars">★★★★★</div>
-        <div class="tc-text">"Llevaba 2 años en Toronto y seguía sin poder hablar con mis compañeros de trabajo. Con Ambar <em>cambió todo.</em>"</div>
-        <div class="tc-author">
-          <div class="tc-name">María G.</div>
-          <div class="tc-detail">Venezuela · Toronto · Grupo pequeño</div>
-        </div>
-      </div>
-      <div class="testimonio-card r">
-        <div class="tc-stars">★★★★★</div>
-        <div class="tc-text">"Lo que me gustó es que Ambar no te promete milagros. Te dice la verdad y te enseña con <em>método real.</em> Eso vale más."</div>
-        <div class="tc-author">
-          <div class="tc-name">Carlos M.</div>
-          <div class="tc-detail">Colombia · Online · Clase individual</div>
-        </div>
-      </div>
-      <div class="testimonio-card r">
-        <div class="tc-stars">★★★★★</div>
-        <div class="tc-text">"Blanquita es lo mejor de las clases 🐾 Pero en serio — el ambiente es tan <em>cómodo</em> que el miedo a equivocarse desaparece."</div>
-        <div class="tc-author">
-          <div class="tc-name">Laura P.</div>
-          <div class="tc-detail">México · Toronto · Grupo pequeño</div>
-        </div>
-      </div>
+
+    <!-- CAROUSEL WRAPPER -->
+    <div class="tc-carousel-outer">
+
+      <!-- Track: full width, padding-right creates the peek gap -->
+      <div class="tc-track-wrap">
+        <div class="tc-track" id="tcTrack">
+
+          <!-- 1. Leissa -->
+          <div class="testimonio-card tc-slide">
+            <div class="tc-stars">★★★★★</div>
+            <div class="tc-text">"Una profesora excepcional. Su metodología, compromiso y pasión por la enseñanza hacen que aprender inglés sea un <em>proceso claro, motivador y realmente efectivo.</em> Sin duda, una excelente inversión para quien quiera aprender de verdad (la mas chingona)."</div>
+            <div class="tc-author">
+              <div class="tc-name">Leissa</div>
+              <div class="tc-detail">México · Toronto · Grupo pequeño</div>
+            </div>
+          </div>
+
+          <!-- 2. María G. -->
+          <div class="testimonio-card tc-slide">
+            <div class="tc-stars">★★★★★</div>
+            <div class="tc-text">"Llevaba 2 años en Toronto y seguía sin poder hablar con mis compañeros de trabajo. Con Ambar <em>cambió todo.</em>"</div>
+            <div class="tc-author">
+              <div class="tc-name">María G.</div>
+              <div class="tc-detail">Venezuela · Toronto · Grupo pequeño</div>
+            </div>
+          </div>
+
+          <!-- 3. Eduardo C. -->
+          <div class="testimonio-card tc-slide">
+            <div class="tc-stars">★★★★★</div>
+            <div class="tc-text">"La maestra Ambar enseña a un nivel muy pedagógico. No solo explica cómo se escribe o pronuncia una palabra, sino el por qué de la estructura del idioma. Gracias a eso, uno empieza a <em>razonar el Inglés desde la raíz.</em> ¡La mejor maestra!"</div>
+            <div class="tc-author">
+              <div class="tc-name">Eduardo C.</div>
+              <div class="tc-detail">México · Toronto · Grupo pequeño</div>
+            </div>
+          </div>
+
+          <!-- 4. Laura P. -->
+          <div class="testimonio-card tc-slide">
+            <div class="tc-stars">★★★★★</div>
+            <div class="tc-text">"Blanquita es lo mejor de las clases 🐾 Pero en serio — el ambiente es tan <em>cómodo</em> que el miedo a equivocarse desaparece."</div>
+            <div class="tc-author">
+              <div class="tc-name">Laura P.</div>
+              <div class="tc-detail">México · Toronto · Grupo pequeño</div>
+            </div>
+          </div>
+
+          <!-- 5. Denise N. -->
+          <div class="testimonio-card tc-slide">
+            <div class="tc-stars">★★★★★</div>
+            <div class="tc-text">"Tuve una excelente experiencia aprendiendo Inglés con la maestra Ambar. Sus clases son dinámicas, claras y muy efectivas. Enseña con paciencia y dedicación, adaptándose a las necesidades de cada estudiante. Gracias a ella ahora me siento <em>más segura al hablar.</em>"</div>
+            <div class="tc-author">
+              <div class="tc-name">Denise N.</div>
+              <div class="tc-detail">México · Toronto · Grupo pequeño</div>
+            </div>
+          </div>
+
+          <!-- 4. Carlos M. -->
+          <div class="testimonio-card tc-slide">
+            <div class="tc-stars">★★★★★</div>
+            <div class="tc-text">"Lo que me gustó es que Ambar no te promete milagros. Te dice la verdad y te enseña con <em>método real.</em> Eso vale más."</div>
+            <div class="tc-author">
+              <div class="tc-name">Carlos M.</div>
+              <div class="tc-detail">Colombia · Online · Clase individual</div>
+            </div>
+          </div>
+
+          <!-- 5. Diana L. -->
+          <div class="testimonio-card tc-slide">
+            <div class="tc-stars">★★★★★</div>
+            <div class="tc-text">"Ambar ha sido una de las mejores maestras de inglés que he tenido. Su forma de enseñar es clara, organizada y práctica, lo que hace que aprender sea <em>más fácil y hasta divertido!!</em>"</div>
+            <div class="tc-author">
+              <div class="tc-name">Diana L.</div>
+              <div class="tc-detail">México · Toronto · Grupo pequeño</div>
+            </div>
+          </div>
+
+        </div><!-- /tc-track -->
+      </div><!-- /tc-track-wrap -->
+
+    </div><!-- /tc-carousel-outer -->
+
+    <!-- Controls: arrows + dots below the track -->
+    <div class="tc-controls">
+      <button class="tc-arrow tc-arrow--prev" id="tcPrev" aria-label="Anterior testimonio">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="tc-dots" id="tcDots" aria-label="Navegación de testimonios"></div>
+      <button class="tc-arrow tc-arrow--next" id="tcNext" aria-label="Siguiente testimonio">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
     </div>
+
   </div>
 </section>
 

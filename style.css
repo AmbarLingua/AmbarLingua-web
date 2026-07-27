@@ -641,18 +641,57 @@ nav {
 .sv-item-title em { color: var(--fucsia); font-style: italic; }
 .sv-item-desc { font-size: 12px; color: rgba(28,20,16,0.5); line-height: 1.55; }
 
-/* ── TESTIMONIOS ── */
+/* ── TESTIMONIOS — CAROUSEL ── */
 .testimonios-section { background: var(--crema); }
-.testimonios-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+
+/*
+  Layout:
+  [track-wrap full width with peek]
+  [arrows + dots row below]
+  Track takes 100% width — no side arrows stealing space.
+*/
+.tc-carousel-outer {
+  position: relative;
 }
+
+/* ── Track wrapper — full width, clips scroll, shows peek ── */
+.tc-track-wrap {
+  overflow: hidden;
+  position: relative;
+  /* Peek: 28px shows the sliver of the next card */
+  padding-right: 28px;
+}
+
+/* Right-edge fade hinting there is more content */
+.tc-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 80px;
+  background: linear-gradient(to left, var(--crema) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Scrolling track ── */
+.tc-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ── Individual card — all identical ── */
 .testimonio-card {
   background: var(--white);
   border-radius: var(--radius-lg);
   padding: 24px;
   border: 1.5px solid var(--crema-dk);
-  box-shadow: 0 4px 16px rgba(28,20,16,0.05);
+  box-shadow: 0 4px 20px rgba(28,20,16,0.07);
   display: flex; flex-direction: column; gap: 16px;
+  /* 3 cards: (100% - peek 28px - 2 gaps 32px) / 3 */
+  flex: 0 0 calc((100% - 60px) / 3);
+  min-width: 0;
 }
 .tc-stars { color: var(--terra); font-size: 14px; letter-spacing: 2px; }
 .tc-text {
@@ -661,12 +700,73 @@ nav {
   line-height: 1.4; flex: 1;
 }
 .tc-text em { color: var(--fucsia); font-style: italic; }
-.tc-author {}
 .tc-name { font-size: 13px; font-weight: 700; color: var(--carbon); }
 .tc-detail {
   font-family: var(--font-mono);
   font-size: 9px; letter-spacing: 0.1em; color: rgba(28,20,16,0.35);
   margin-top: 2px;
+}
+
+/* ── Chevron arrow buttons ── */
+.tc-arrow {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid rgba(196,98,45,0.25);
+  color: var(--terra);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  flex-shrink: 0;
+  padding: 0;
+  box-shadow: 0 2px 10px rgba(28,20,16,0.08);
+}
+.tc-arrow svg {
+  width: 14px; height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s;
+}
+.tc-arrow:hover {
+  background: var(--terra);
+  border-color: var(--terra);
+  color: white;
+}
+.tc-arrow:hover svg { transform: scale(1.15); }
+
+/* ── Controls row: [‹] [dots] [›] below the track ── */
+.tc-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 18px 0 4px;
+}
+.tc-dots {
+  display: flex; align-items: center; gap: 8px;
+}
+.tc-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--crema-dk);
+  border: none; cursor: pointer; padding: 0;
+  transition: background 0.25s, width 0.25s;
+  flex-shrink: 0;
+}
+.tc-dot.active {
+  background: var(--terra);
+  width: 22px; border-radius: 4px;
+}
+
+/* ── Mobile: 1 card visible + peek ── */
+@media (max-width: 768px) {
+  .tc-track-wrap { padding-right: 32px; }
+  .tc-track-wrap::after { width: 60px; }
+  .testimonio-card { flex: 0 0 calc(100% - 32px); }
+  .tc-arrow { width: 32px; height: 32px; }
+  .tc-arrow svg { width: 12px; height: 12px; }
 }
 
 /* ── PICNIC CTA ── */
@@ -1160,8 +1260,7 @@ footer {
   .sorbito-bottom-row,
   .contacto-grid,
   .picnic-inner { grid-template-columns: 1fr; }
-  .clases-grid,
-  .testimonios-grid { grid-template-columns: 1fr; }
+  .clases-grid { grid-template-columns: 1fr; }
   .stats-inner { justify-content: center; padding: 0 20px; }
   .stats-bar { overflow: hidden; }
   .stat-divider { display: none; }
