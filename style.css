@@ -789,11 +789,23 @@ nav {
 .ci-icon--fb,
 .ci-icon--wa,
 .ci-icon--ig {
+  /* override the box from .ci-icon — show bare brand logos */
+  width: auto; height: auto;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
-  text-decoration: none; /* removes underline since they're now <a> tags */
+  text-decoration: none;
+  flex-shrink: 0;
+}
+/* Facebook: keep the blue circle SVG as-is, just strip the outer wrapper box */
+.ci-icon--fb {
+  background: none;
+  border: none;
 }
 
 .form-group { display: flex; flex-direction: column; gap: 6px; }
