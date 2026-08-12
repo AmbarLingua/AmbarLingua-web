@@ -138,6 +138,7 @@ nav {
 }
 .hero-title em { color: var(--fucsia); font-style: italic; display: block; }
 .hero-title .t { color: var(--terra); }
+.hero-title .t em { color: inherit; font-style: italic; display: inline; }
 
 .hero-sub {
   font-size: 15px; line-height: 1.75;
