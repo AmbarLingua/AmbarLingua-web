@@ -112,7 +112,7 @@ nav {
   align-items: center;
   padding: 44px 60px 60px;
   max-width: var(--max-w);
-  margin: 0 auto;
+  margin: 44px auto 0;
   gap: 60px;
   position: relative;
 }
@@ -499,42 +499,7 @@ nav {
 .cc-cta-outline:hover { background: var(--terra); color: white; }
 
 /* Oferta strip — below the fixed nav, above the hero */
-.oferta-strip {
-  position: relative;
-  z-index: 90;
-  margin-top: 64px;
-  background: var(--crema-warm);
-  border-bottom: 1.5px solid rgba(196,98,45,0.15);
-}
-.oferta-strip-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 60px;
-}
 
-/* Discount bar */
-.discount-bar {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 12px 0;
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 0; flex-wrap: wrap; gap: 12px;
-}
-.db-left {}
-.db-label {
-  font-family: var(--font-mono);
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--fucsia); margin-bottom: 3px;
-}
-.db-text { font-size: 14px; font-weight: 600; color: var(--carbon); }
-.db-text em { color: var(--fucsia); font-style: normal; }
-.db-pill {
-  background: var(--fucsia); color: white;
-  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
-  padding: 8px 18px; border-radius: var(--radius-pill);
-  box-shadow: 0 3px 12px rgba(212,0,106,0.3);
-}
 
 /* ── SORBITO SECTION ── */
 .sorbito-section {
@@ -1267,8 +1232,6 @@ footer {
   .stat-divider { display: none; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .oferta-strip-inner { padding: 0 24px; }
-  .oferta-strip { margin-top: 64px; }
   .contacto-left { padding-top: 0; margin-top: -16px; }
 }
 /* ═══════════════════════════════════════════════════════════
