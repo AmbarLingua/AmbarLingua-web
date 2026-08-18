@@ -493,7 +493,7 @@ if (form) {
         (mensaje.trim() ? ` | Mensaje: ${mensaje.trim()}` : '')
       );
 
-      window.open(`https://wa.me/14378919298?text=${waText}`, '_blank');
+      window.open(`https://wa.me/12498697782?text=${waText}`, '_blank');
       showToast();
       resetContactForm();
     } else {
