@@ -1,3 +1,12 @@
+// ── PROMO BANNER CLOSE ──
+const promoBanner = document.getElementById('promoBanner');
+const promoClose = document.getElementById('promoClose');
+if (promoBanner && promoClose) {
+  promoClose.addEventListener('click', () => {
+    document.body.classList.add('promo-hidden');
+  });
+}
+
 // ── SCROLL REVEAL ──
 const obs = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {

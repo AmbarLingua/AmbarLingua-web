@@ -40,9 +40,79 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ── PROMO BANNER ── */
+.promo-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 110;
+  height: 40px;
+  background: linear-gradient(90deg, var(--terra), var(--fucsia));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 44px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  text-align: center;
+}
+.promo-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+.promo-text { font-weight: 500; }
+.promo-text strong { font-weight: 800; }
+.promo-link {
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.promo-link:hover { opacity: 0.85; }
+.promo-close {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+.promo-close:hover { color: var(--white); }
+
+body.promo-hidden .promo-banner { display: none; }
+body.promo-hidden nav { top: 0; }
+
+@media (max-width: 768px) {
+  .promo-banner {
+    height: auto;
+    min-height: 40px;
+    padding: 8px 36px 8px 12px;
+    font-size: 10.5px;
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+  .promo-badge { display: none; }
+  .promo-close { right: 10px; }
+}
+
 /* ── NAV ── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0;
+  position: fixed; top: 40px; left: 0; right: 0;
   z-index: 100;
   background: rgba(245,239,224,0.92);
   backdrop-filter: blur(12px);
@@ -50,6 +120,7 @@ nav {
   padding: 0 40px;
   height: 64px;
   display: flex; align-items: center; justify-content: space-between;
+  transition: top 0.2s ease;
 }
 .nav-logo {
   font-family: var(--font-display);
@@ -438,14 +509,6 @@ nav {
   box-shadow: 0 16px 40px rgba(196,98,45,0.12);
 }
 .clase-card.highlight { border-top-color: var(--fucsia); }
-.clase-card.highlight::after {
-  content: 'POPULAR';
-  position: absolute; top: 16px; right: 16px;
-  background: var(--fucsia); color: white;
-  font-family: var(--font-mono); font-size: 8px;
-  font-weight: 700; letter-spacing: 0.12em;
-  padding: 3px 10px; border-radius: var(--radius-pill);
-}
 .cc-icon { font-size: 28px; margin-bottom: 16px; }
 .cc-title {
   font-family: var(--font-display);
@@ -508,6 +571,31 @@ nav {
   border: 1.5px solid var(--terra);
 }
 .cc-cta-outline:hover { background: var(--terra); color: white; }
+
+/* ── CORNER RIBBON (promo) — used on clase-card and survival-box ── */
+.corner-ribbon {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(90deg, var(--fucsia), var(--terra));
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 6px;
+  box-shadow: 0 3px 10px rgba(212,0,106,0.3);
+  max-width: 100%;
+}
+.survival-box .corner-ribbon {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
 
 /* Oferta strip — below the fixed nav, above the hero */
 
@@ -841,7 +929,7 @@ nav {
 .picnic-cta:hover { background: var(--fucsia-lt); transform: translateY(-2px); }
 
 /* ── CONTACTO ── */
-.contacto-section { background: var(--white); scroll-margin-top: 64px; }
+.contacto-section { background: var(--white); scroll-margin-top: 104px; }
 .contacto-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
 }
@@ -1100,7 +1188,7 @@ a.cc-cta {
 
 /* Evaluación card scroll offset — lands at top of card, not mid-content */
 #evaluacion {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 120px;
 }
 
 /* ── FOOTER ── */
@@ -1244,13 +1332,15 @@ footer {
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .contacto-left { padding-top: 0; margin-top: -16px; }
+  .corner-ribbon { font-size: 9px; padding: 7px 12px; margin-bottom: 5px; }
 }
 /* ═══════════════════════════════════════════════════════════
    CAJA — INGLÉS DE SUPERVIVENCIA Y TRABAJO
    Bloque nuevo. No modifica ninguna regla existente.
    ═══════════════════════════════════════════════════════════ */
 .survival-box {
-  margin-top: 28px;
+  margin-top: 0;
+  margin-bottom: 28px;
   background: var(--white);
   border: 1.5px solid var(--crema-dk);
   border-left: 5px solid var(--fucsia);
@@ -1264,6 +1354,7 @@ footer {
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.25s;
+  scroll-margin-top: 120px;
 }
 .survival-box:hover { box-shadow: 0 14px 36px rgba(212,0,106,0.10); }
 
