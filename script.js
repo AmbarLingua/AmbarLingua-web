@@ -4,7 +4,29 @@ const promoClose = document.getElementById('promoClose');
 if (promoBanner && promoClose) {
   promoClose.addEventListener('click', () => {
     document.body.classList.add('promo-hidden');
+    updateHeaderOffset();
   });
+}
+
+// ── DYNAMIC HEADER OFFSET ──
+// Measures the REAL height of the promo banner (it can wrap to 2 lines on
+// small screens) and the nav, then pushes the nav + page content down by
+// that exact amount. This prevents the nav/hero from overlapping the
+// banner when its height isn't the fixed 40px assumed by the old CSS.
+const navEl = document.querySelector('nav');
+function updateHeaderOffset() {
+  const bannerHidden = document.body.classList.contains('promo-hidden');
+  const bannerH = (promoBanner && !bannerHidden) ? promoBanner.offsetHeight : 0;
+  const navH = navEl ? navEl.offsetHeight : 0;
+  document.documentElement.style.setProperty('--banner-h', bannerH + 'px');
+  document.documentElement.style.setProperty('--header-h', (bannerH + navH) + 'px');
+  if (navEl) navEl.style.top = bannerH + 'px';
+}
+updateHeaderOffset();
+window.addEventListener('resize', updateHeaderOffset);
+window.addEventListener('load', updateHeaderOffset);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(updateHeaderOffset);
 }
 
 // ── SCROLL REVEAL ──

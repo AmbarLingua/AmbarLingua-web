@@ -97,6 +97,20 @@ body {
 body.promo-hidden .promo-banner { display: none; }
 body.promo-hidden nav { top: 0; }
 
+/* ── TABLET (e.g. iPad) ──
+   Avoid huge empty space above/below the hero: on tall tablet screens,
+   100vh is much taller than the hero's actual content, and
+   align-items:center + min-height:100vh stretched it into a near-empty
+   box. Switch to a content-driven height instead. */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    align-items: start;
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+}
+
 @media (max-width: 768px) {
   .promo-banner {
     height: auto;
@@ -112,7 +126,7 @@ body.promo-hidden nav { top: 0; }
 
 /* ── NAV ── */
 nav {
-  position: fixed; top: 40px; left: 0; right: 0;
+  position: fixed; top: var(--banner-h, 40px); left: 0; right: 0;
   z-index: 100;
   background: rgba(245,239,224,0.92);
   backdrop-filter: blur(12px);
@@ -176,14 +190,14 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  min-height: calc(100vh - 64px);
+  min-height: auto;
   background: var(--crema);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 44px 60px 60px;
+  padding: 44px 60px 44px;
   max-width: var(--max-w);
-  margin: 44px auto 0;
+  margin: var(--header-h, 104px) auto 0;
   gap: 60px;
   position: relative;
 }
